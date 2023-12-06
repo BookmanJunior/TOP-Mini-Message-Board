@@ -8,13 +8,13 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <a href="/new">Post a Message</a>
-    <% messages.forEach(message => { %>
+    <% comments.forEach(comment => { %>
     <div class="user-post">
       <div class="user-info">
-        <h2><%= message.user %></h2>
-        <p><%= message.added%></p>
+        <h2><%= comment.user.name %></h2>
+        <p><%= comment.sorted_date%></p>
       </div>
-      <p class="user-message"><%= message.text%></p>
+      <p class="user-message"><%= comment.comment %></p>
     </div>
     <% }) %>
   </body>
