@@ -6,9 +6,12 @@ const commentController = require("../controller/commentController");
 router.get("/", commentController.get_comments);
 
 router.get("/new", function (req, res, next) {
-  res.render("form");
+  res.render("form", {
+    errors: undefined,
+    comments: { user: undefined, message: undefined },
+  });
 });
 
-router.post("/new");
+router.post("/new", commentController.post_comment);
 
 module.exports = router;
