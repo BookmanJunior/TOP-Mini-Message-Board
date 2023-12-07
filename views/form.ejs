@@ -8,16 +8,27 @@
   <body>
     <form action="/new" method="post">
       <label for="username">Username: </label>
-      <input type="text" name="username" id="username" />
+      <input
+        type="text"
+        name="username"
+        id="username"
+        value="<%= comments.user.name === undefined ? '' : comments.user.name %>"
+      />
       <label for="userMessage">Your Message: </label>
       <textarea
         name="userMessage"
         id="userMessage"
         cols="30"
         rows="10"
+        value="<%=comments.message === undefined ? '' : comments.message%>"
       ></textarea
       ><br />
       <input type="submit" value="Post" />
     </form>
+    <% if (errors) { %> <% errors.forEach(error => { %>
+    <ul>
+      <li><%= error.msg %></li>
+    </ul>
+    <% }) %> <% } %>
   </body>
 </html>
