@@ -16,5 +16,5 @@ A simple node project written in express to put in practice routing, templating,
 - Validation and sanitization of data using express-validator package 
 - EJS
 
-- ## TODOS
+## TODOS
 - Rewrite the application using React as front end upon learning REST API
