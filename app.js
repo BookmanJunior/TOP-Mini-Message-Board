@@ -3,12 +3,20 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
 var app = express();
 const port = 8000;
+const MongdoDBURI = process.env.MONGODBURI;
+
+main().catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect(MongdoDBURI);
+}
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
